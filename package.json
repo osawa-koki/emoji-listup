@@ -1,0 +1,17 @@
+{
+  "name": "emoji-listup",
+  "version": "1.0.0",
+  "description": "🧿🧿🧿 絵文字をリストアップするスクリプトです！",
+  "main": "./src/index.ts",
+  "repository": "https://github.com/osawa-koki/emoji-listup.git",
+  "author": "osawa-koki <koki@osawa.dev>",
+  "license": "Apache-2.0",
+  "private": false,
+  "engines": {
+    "node": ">= 20.0.0",
+    "yarn": ">= 1.22.0"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}
