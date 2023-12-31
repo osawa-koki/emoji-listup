@@ -35,6 +35,9 @@ rows.forEach((row) => {
   csvRows.push(csvRow)
 })
 
+const json = JSON.stringify(csvRows, null, 2)
+fs.writeFileSync('./full-emoji-list.json', json)
+
 csv.stringify(csvRows, (err, output) => {
   if (err != null) {
     throw err
