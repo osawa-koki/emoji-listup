@@ -1,4 +1,5 @@
 import fs from 'fs'
+import csv from 'csv'
 import { parse } from 'node-html-parser'
 
 const html = fs.readFileSync('./full-emoji-list.html', 'utf8')
@@ -9,6 +10,8 @@ const table = root.querySelector('table')
 if (table == null) {
   throw new Error('Could not find table.')
 }
+
+const csvRows: string[][] = [['no', 'code', 'browser', 'sample', 'gmail', 'sb', 'dcm', 'kddi', 'cldrShortName']]
 
 const rows = table.querySelectorAll('tr')
 rows.forEach((row) => {
@@ -27,15 +30,14 @@ rows.forEach((row) => {
   const kddi = columns[7].querySelector('img')?.getAttribute('src') ?? columns[7].innerText
   const cldrShortName = columns[8].innerText
 
-  console.log({
-    no,
-    code,
-    browser,
-    sample,
-    gmail,
-    sb,
-    dcm,
-    kddi,
-    cldrShortName
-  })
+  const csvRow: string[] = [no, code, browser, sample, gmail, sb, dcm, kddi, cldrShortName]
+
+  csvRows.push(csvRow)
+})
+
+csv.stringify(csvRows, (err, output) => {
+  if (err != null) {
+    throw err
+  }
+  fs.writeFileSync('./full-emoji-list.csv', output)
 })
