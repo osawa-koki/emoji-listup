@@ -19,8 +19,11 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "type-check": "tsc --noEmit"
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-html-parser": "^6.1.12"
+  },
   "devDependencies": {
+    "@types/node": "^20.10.6",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "esbuild": "^0.19.11",
     "esbuild-register": "^3.5.0",
