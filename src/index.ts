@@ -1,5 +1,5 @@
 import fs from 'fs'
-import csv from 'csv'
+import * as csv from 'csv'
 import { parse } from 'node-html-parser'
 
 const html = fs.readFileSync('./full-emoji-list.html', 'utf8')
