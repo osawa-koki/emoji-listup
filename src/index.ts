@@ -21,7 +21,7 @@ rows.forEach((row) => {
   }
 
   const no = columns[0].innerText
-  const code = columns[1].querySelectorAll('a').map((a) => a.innerText).join(',')
+  const code = columns[1].querySelector('a')?.innerText.split(' ')?.join(',') ?? columns[1].innerText
   const browser = columns[2].innerText
   const sample = columns[3].querySelector('img')?.getAttribute('src') ?? columns[3].innerText
   const gmail = columns[4].querySelector('img')?.getAttribute('src') ?? columns[4].innerText
